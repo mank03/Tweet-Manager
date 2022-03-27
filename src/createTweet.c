@@ -8,13 +8,12 @@
 tweet * createTweet(tweet * tweetList)
 {
     tweet *newNode;
-    tweetList = NULL;
+    tweet *x;
+    x = malloc(sizeof(tweet));
     int lenUser;
     int lenTweet;
     int sum = 0;
-
-    bool check = true;
-    bool var = true;
+    int check = 0;
     
     newNode = malloc(sizeof(tweet));
 
@@ -24,7 +23,7 @@ tweet * createTweet(tweet * tweetList)
 
     printf("Enter user tweet: ");
     fgets(newNode->text, 141, stdin);
-    newNode->text[strlen(newNode->text)-1] = '\0';
+    //newNode->text[strlen(newNode->text)-1] = '\0';
 
     lenUser = strlen(newNode -> user);
     lenTweet = strlen(newNode -> text);
@@ -32,69 +31,52 @@ tweet * createTweet(tweet * tweetList)
     {
         sum = sum + newNode -> user[i];
     }
-
-    //printf("\nsum of username characters: %d\n", sum);
-    //printf("length of user's tweet: %d\n", lenTweet);
+    
     newNode -> id = sum + lenTweet;
-    //printf("User ID is: %d", sum + lenTweet);
 
-    newNode -> next = NULL;
-
-
-
-        if(check) 
-        {
-            tweetList = newNode;
-            check = false;
-            printf("\nuser id is: %d\n", newNode -> id);
-        }
-        else
-        {
-            printf("HELLLO!!\n");
-            var = false;
-
-            while(var == false)
-            {
-                newNode = tweetList;
-                var = true;
-
-                while(tweetList != NULL)
-                {
-                    
-                    if(tweetList -> id == newNode -> id)
-                    {
-                        printf("it is same\n");
-                        srand(time(NULL));
-                        newNode -> id += rand()%999 + 1;
-                        //y -> id = y -> id + random;
-                        var = false;
-                    }
-                    tweetList = tweetList -> next;
-                }
-            }
+    while(check == 0)
+    {
+        x = tweetList;
+        check = 1;
        
-            printf("\nuser id is %d\n", newNode -> id);
-            newNode = tweetList;  
-         }
-
+        while(x != NULL && tweetList != NULL)
+        {
+            newNode -> next = NULL;
+            if(newNode -> id == x -> id)
+            {
+                check = 0;
+                srand(time(NULL));
+                newNode -> id += rand()%999 + 1;
+                printf("it is the same");
+            }
+            else
+            {
+                printf("it is NOT the same");
+            }
+            x = x -> next;
+        }
+    }
+    newNode -> next = NULL;
+    printf("\nuser id is %d\n", newNode -> id);
+    free(x);
     return newNode;
 }
-/*
+
 void addNodeToList(tweet**tweetList,tweet * node)
 {
-    *tweetList = malloc(sizeof(tweet));
+    tweet *a = *tweetList;
         
-    if((*tweetList) -> next == NULL)
+    if(*tweetList == NULL)
     {
         *tweetList = node;
     }
     else
     {
-        while((*tweetList) -> next != NULL)
+        while(a -> next != NULL)
         {
-            *tweetList = (*tweetList) -> next;
+            a = a -> next;
         }
+        a -> next = node;
     }
-        (*tweetList) -> next = node;
 }
-*/
+

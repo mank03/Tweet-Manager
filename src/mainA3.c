@@ -3,26 +3,19 @@
 #include <string.h>	
 #include <time.h> 
 #include <stdbool.h> 
+#include <ctype.h>
 #include "../include/headerA3.h"
 
 int main(int argc, char *argv[])
 {
     int menuOption = 0;
 
-    tweet * tweetList;
-    tweetList = malloc(sizeof(tweet));
+    tweet * tweetList = NULL;
 
     tweet * mainTweet;
     mainTweet = malloc(sizeof(tweet));
 
-    tweet * head = NULL;
-
-    tweet *temp;
-
-    tweet * node;
-
-    bool var = true;
-    bool check = true;
+    int a;
 
     do
     {
@@ -43,69 +36,43 @@ int main(int argc, char *argv[])
         switch(menuOption)
         {
             case 1:
-                
+                //createTweet(tweetList);
                 mainTweet = createTweet(tweetList);
-                //addNodeToList(tweetList,node)
-                /*
-                if(check) 
-                {
-                    head = mainTweet;
-                    check = false;
-                    printf("\nuser id is: %d\n", mainTweet -> id);
-                }
-                else
-                {
-                    var = false;
-
-                    while(var == false)
-                    {
-                        tweetList = head;
-                        var = true;
-
-                        while(tweetList != NULL)
-                        {
-                            if(tweetList -> id == mainTweet -> id)
-                            {
-                                printf("it is same\n");
-                                srand(time(NULL));
-                                mainTweet -> id += rand()%999 + 1;
-                                //y -> id = y -> id + random;
-                                var = false;
-                            }
-                            tweetList = tweetList -> next;
-                        }
-                    }
-                    printf("\nuser id is %d\n", mainTweet -> id);
-                    tweetList = head;  
-                */
-                
-                    while(tweetList -> next != NULL)
-                    {
-                        tweetList = tweetList -> next;
-                    }
-                    tweetList -> next = mainTweet;
-                
-                
+                addNodeToList(&tweetList,mainTweet);
                 break;
             case 2:
                 displayTweets(tweetList);
+                break;
+            case 3:
+                a = searchTweetsByKeyword(tweetList);
+                printf("a is: %d\n", a);
+                break;
+            case 4:
+                countStopWords(tweetList);
+                break;
+            case 5:
+                deleteTweet(&tweetList);
+                break;
+            case 6:
+                saveTweetsToFile(tweetList);
+                break;
+            case 7:
+                loadTweetsFromFile(&tweetList);
                 break;
             case 9:
                 break;
             default: printf ("That is an invalid choice\n");
         }
     }while(menuOption != 9);
-    /*
-    tweet *x;
-    x = head;
 
-    while(x != NULL)
+    //mainTweet = tweetList;
+
+    while(tweetList != NULL)
     {
-        printf("\nUsername: %s\n", x->user);
-        printf("User Tweet: %s\n", x->text);
-        printf("User ID: %d\n", x->id);
-        x = x -> next;
+        mainTweet = tweetList;
+        tweetList = tweetList -> next;
+        free(mainTweet);
     }
-    */
+    
     return 0;
 }
