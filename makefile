@@ -1,32 +1,32 @@
 konnurManuA3: createTweet.o displayTweets.o searchTweets.o stopWords.o deleteTweets.o saveTweets.o loadTweets.o sortId.o mainA3.o
-	gcc -Wall -std=c99 -g createTweet.o displayTweets.o searchTweets.o stopWords.o deleteTweets.o saveTweets.o loadTweets.o sortId.o mainA3.o -o bin/konnurManuA3
+	gcc -Wall -std=c99 createTweet.o displayTweets.o searchTweets.o stopWords.o deleteTweets.o saveTweets.o loadTweets.o sortId.o mainA3.o -o konnurManuA3
 
-createTweet.o: src/createTweet.c include/headerA3.h 
-	gcc -Wall -std=c99 -c -g src/createTweet.c
+createTweet.o: createTweet.c headerA3.h header2A3.h
+	gcc -Wall -std=c99 -c createTweet.c
 
-displayTweets.o: src/displayTweets.c include/headerA3.h 
-	gcc -Wall -std=c99 -c -g src/displayTweets.c
+displayTweets.o: displayTweets.c headerA3.h header2A3.h 
+	gcc -Wall -std=c99 -c displayTweets.c
 
-searchTweets.o: src/searchTweets.c include/headerA3.h 
-	gcc -Wall -std=c99 -c -g src/searchTweets.c
+searchTweets.o: searchTweets.c headerA3.h header2A3.h
+	gcc -Wall -std=c99 -c searchTweets.c
 
-stopWords.o: src/stopWords.c include/headerA3.h 
-	gcc -Wall -std=c99 -c -g src/stopWords.c
+stopWords.o: stopWords.c headerA3.h header2A3.h 
+	gcc -Wall -std=c99 -c stopWords.c
 
-deleteTweets.o: src/deleteTweets.c include/headerA3.h 
-	gcc -Wall -std=c99 -c -g src/deleteTweets.c
+deleteTweets.o: deleteTweets.c headerA3.h header2A3.h 
+	gcc -Wall -std=c99 -c deleteTweets.c
 
-saveTweets.o: src/saveTweets.c include/headerA3.h 
-	gcc -Wall -std=c99 -c -g src/saveTweets.c
+saveTweets.o: saveTweets.c headerA3.h header2A3.h 
+	gcc -Wall -std=c99 -c saveTweets.c
 
-loadTweets.o: src/loadTweets.c include/headerA3.h 
-	gcc -Wall -std=c99 -c -g src/loadTweets.c
+loadTweets.o: loadTweets.c headerA3.h header2A3.h 
+	gcc -Wall -std=c99 -c loadTweets.c
 
-sortId.o: src/sortId.c include/headerA3.h 
-	gcc -Wall -std=c99 -c -g src/sortId.c	
+sortId.o: sortId.c headerA3.h header2A3.h 
+	gcc -Wall -std=c99 -c sortId.c	
 
-mainA3.o: src/mainA3.c include/headerA3.h 
-	gcc -Wall -std=c99 -c -g src/mainA3.c
+mainA3.o: mainA3.c headerA3.h header2A3.h 
+	gcc -Wall -std=c99 -c mainA3.c
 
 clean: 
-	rm *.o bin/konnurManuA3
+	rm *.o konnurManuA3
