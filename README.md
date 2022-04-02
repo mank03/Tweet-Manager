@@ -12,6 +12,8 @@ Via a menu-driven solution, create a program that allows a user to run basic tas
 
 ### Setup
 To run the program, use make command to compile all files and run the executable:
+```
 $ ./konnurManuA3
+```
 
 Complied using 
