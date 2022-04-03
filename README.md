@@ -1,5 +1,6 @@
-# Assignment #3: Dynamic Data Structures
-
+```diff
+++ # Assignment #3: Dynamic Data Structures
+```
 ## Information
 * Student Name: Manu Konnur
 * Student ID: 1178498
