@@ -28,7 +28,7 @@ tweet * createTweet(tweet * tweetList)
         b[strlen(b)-1] = '\0';
         if(strlen(b) == 0 || strlen(b) > 50)
         {
-            printf("Error!\n");
+            printf("Error! Please try again.\n");
             k = 0;
         }
     }
@@ -37,12 +37,12 @@ tweet * createTweet(tweet * tweetList)
     while(j == 0)
     {
         j = 1;
-        printf("Enter user tweet: ");
+        printf("Enter user's tweet: ");
         fgets(a, 5000, stdin);
         a[strlen(a)-1] = '\0';
         if(strlen(a) == 0 || strlen(a) > 141)
         {
-            printf("Error\n");
+            printf("Error! Please try again.\n");
             j = 0;
         }
     }
@@ -76,12 +76,10 @@ tweet * createTweet(tweet * tweetList)
                 check = 0;
                 srand(time(NULL));
                 newNode -> id += rand()%999 + 1;
-                printf("it is the same");
             }
             else
             {
                 //otherwise do nothing
-                printf("it is NOT the same");
             }
             //go to next node
             x = x -> next;
@@ -91,7 +89,6 @@ tweet * createTweet(tweet * tweetList)
     newNode -> next = NULL;
     printf("\nYour computer-generated userid is %d.\n", newNode -> id);
     //free temp variable and return new node created
-
     return newNode;
 }
 //helper function to add a node to the end of the list

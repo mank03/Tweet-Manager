@@ -25,7 +25,7 @@ void saveTweetsToFile(tweet * tweetList)
             if((strcmp(pointer,".csv") != 0))
             {
                 x = 0;
-                printf("1 - File extension is not .csv!\n");
+                printf("File extension is not .csv!\n");
             }
             else
             {
@@ -45,13 +45,7 @@ void saveTweetsToFile(tweet * tweetList)
                 {
                     fprintf(file, "%d,", temp -> id);
                     fprintf(file, "%s,", temp -> user);
-                    //fwrite(temp -> id, sizeof(int), sizeof(temp -> id)+1, file);
-                    //fwrite(temp -> id, sizeof(int), sizeof(temp -> id)+1, file);
-                    //fwrite("\"" + temp -> text + "\"", sizeof(char), strlen(temp -> text)+1, file);
-                    //fprintf(file, "\"");
                     fprintf(file, "%s,", temp -> text);
-                    //fprintf(file, "\"");
-                    //fprintf(file, "%s\n", "\"" + temp -> text + "\"");
                     fprintf(file, "\n");
                 }
             }
@@ -59,10 +53,9 @@ void saveTweetsToFile(tweet * tweetList)
         else
         {
             x = 0;
-            printf("3 -File extension is not .csv!\n");
+            printf("File extension is not .csv!\n");
         }
     }
-
     //close file once done
     fclose(file);
 }
