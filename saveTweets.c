@@ -21,7 +21,6 @@ void saveTweetsToFile(tweet * tweetList)
         //if statement to check if file extension is csv
         if((pointer = strstr(filename,".")) != NULL ) 
         {   
-            //printf("pointer: %s\n", pointer);
             //if file extension is not csv, then loop again
             if((strcmp(pointer,".csv") != 0))
             {

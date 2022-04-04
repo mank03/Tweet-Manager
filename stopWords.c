@@ -29,7 +29,6 @@ void countStopWords(tweet * tweetList)
         printf("TEMP IS NULL\n");
     }
     
-    //temp2 = tweetList;
     while(tweetList != NULL)
     {       
         //strcpy temp2 with user tweet text's and strtok to get individual words
@@ -48,10 +47,8 @@ void countStopWords(tweet * tweetList)
                 if(strcmp(temp, stopWords[i]) == 0)
                 {
                     x++;
-                    //printf("temp: %s\n", temp);
                 }
             }
-            //printf("temp: %s\n", temp);
             temp = strtok(NULL, " ");
         }
         //count the number of total tweet and go to next node

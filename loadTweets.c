@@ -42,14 +42,12 @@ void loadTweetsFromFile(tweet ** tweetList)
                 }
                 
                 //using while loop that loops to end of file and gets user information
-                //!feof(file)
                 while(fgets(userInfo, sizeof(userInfo), file))
                 {
                     //mallocing a temp variable to store user info
                     temp = calloc(sizeof(tweet), 1);
                     temp -> next = NULL;
                     //using fgets to get each line of fine
-                    //fgets(userInfo, sizeof(userInfo), file);
                     userInfo[strlen(userInfo)-1] = '\0';
                     
                     //strtok array with delimiter of ","

@@ -32,7 +32,6 @@ void deleteTweet(tweet ** tweetList)
     if(delete == 1)
     {
         *tweetList = node -> next;
-        //node -> next = NULL;
         printf("\nTweet %s deleted. There are now %d tweets left.\n", node -> user, count - 1);
         //free node after dynamically allocated and return function
         free(node);
