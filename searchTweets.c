@@ -5,7 +5,6 @@
 int searchTweetsByKeyword(tweet * tweetList)
 {
     //declare and initialize required variables
-    //char *temp;
     char *temp2;
     char search[50];
     int x = 0;
@@ -28,26 +27,20 @@ int searchTweetsByKeyword(tweet * tweetList)
     printf("Enter a keyword to search: ");
     scanf("%s", search);
     
-    //temp2 = tweetList;
     while(tweetList != NULL)
     {       
         strcpy(temp2, tweetList -> text); 
-        //temp = strtok(temp2, " ");
-        //while(temp != NULL)
         {
-            //printf("temp2: %s\n", temp);
             //using strcasestr function to compare temp2 and search
             if(strcasestr(temp2, search))
             {
-                //printf("Search found\n");
                 printf("Match found for '%s': %s wrote: %s\n", search, tweetList-> user, tweetList -> text);
                 x++;
             }
             else
             {
-                //printf("Search not found\n");
+                //otherwise do nothing
             }
-            //temp = strtok(NULL, " ");
         }
         tweetList = tweetList -> next;
     }
@@ -59,9 +52,10 @@ int searchTweetsByKeyword(tweet * tweetList)
     }
     else
     {
-        x = -1;
+        x = 0;
     }
 
+    //free dynamically allocated array
     free(temp2);
     
     return x;
