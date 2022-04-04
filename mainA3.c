@@ -5,9 +5,9 @@ int main(int argc, char *argv[])
 {
     //declare and initialize required variables
     int menuOption = 0;
-    int a;
     tweet * tweetList = NULL;
     tweet * mainTweet;
+    int a = 0;
     
     //do while loop to loop through menu options until user enter 9
     do
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
                 break;
             case 3:
                 a = searchTweetsByKeyword(tweetList);
-                //printf("\na is: %d\n", a);
+                printf("\nreturn %d\n", a);
                 break;
             case 4:
                 countStopWords(tweetList);

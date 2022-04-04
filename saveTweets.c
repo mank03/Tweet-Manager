@@ -9,7 +9,6 @@ void saveTweetsToFile(tweet * tweetList)
     char filename[50];
     char *pointer;
     int x = 0;
-    int a;
 
     while(x==0)
     {
